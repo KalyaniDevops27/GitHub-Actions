@@ -1,0 +1,28 @@
+name: Workflow files practice
+
+on:
+  push:
+    branches:
+        - feature/workflow-basics
+  workflow_dispatch:
+    
+permissions:
+    contents: read
+
+jobs:
+    inspect-repository:
+        name: Inspect-repository
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: checkout repository
+              uses: actions/checkout@v4
+
+            - name: display current directory
+              run: pwd
+
+            - name: List repository files
+              run: ls -la
+
+            - name: print completion message
+              run: echo "workflow file practice completed"
